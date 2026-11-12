@@ -59,7 +59,9 @@ fetch_slowdns "slowdns.service" "/etc/systemd/system/slowdns.service"
 sed -i "s/xxxx/${NS_DOMAIN}/g" /etc/systemd/system/slowdns.service
 
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT 2>/dev/null || true
-iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300 2>/dev/null || true
+iptables -t nat -I PREROUTING -i eth0 -p udp --dport 53 -j REDIRECT --to-ports 5300 2>/dev/null || true
+ip6tables -I INPUT -p udp --dport 5300 -j ACCEPT 2>/dev/null || true
+ip6tables -t nat -I PREROUTING -i eth0 -p udp --dport 53 -j REDIRECT --to-ports 5300 2>/dev/null || true
 
 systemctl daemon-reload
 systemctl enable --now slowdns.service || true
