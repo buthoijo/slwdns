@@ -17,7 +17,7 @@ VIP_DIR="${VIP_DIR:-/root/vip}"
 if [ ! -d "$VIP_DIR" ]; then
     VIP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." 2>/dev/null && pwd)"
 fi
-REPO="https://raw.githubusercontent.com/zaker240091-bit/autoscript-vip/main/"
+REPO="https://github.com/buthoijo/slwdns/blob/main/vip/"
 
 fetch_m() {
     local rel="$1"
