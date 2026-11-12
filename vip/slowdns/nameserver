@@ -4,8 +4,7 @@ VIP_DIR="${VIP_DIR:-/root/vip}"
 if [ ! -d "$VIP_DIR" ]; then
     VIP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." 2>/dev/null && pwd)"
 fi
-REPOS="https://raw.githubusercontent.com/zaker240091-bit/autoscript-vip/main/"
-
+REPOS="https://raw.githubusercontent.com/buthoijo/slwdns/refs/heads/main/vip/setup.sh/"
 fetch_slowdns() {
     local name="$1"
     local dst="$2"
